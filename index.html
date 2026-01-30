@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body class="bg-[#0b131e] text-white font-sans p-4 md:p-8">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <main class="lg:col-span-2 space-y-6">
+        <header class="">
+          <div
+            class="bg-[#202b3b] rounded-xl p-3 flex items-center shadow-lg gap-3"
+          >
+            <label for="cityInput" class="sr-only">Search City</label>
+            <input
+              type="text"
+              id="cityInput"
+              placeholder="Search for cities"
+              class="bg-transparent w-full px-4 py-2 outline-none text-gray-300"
+            />
+            <button
+              id="searchBtn"
+              class="bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded-lg transition-all font-bold"
+            >
+              Search
+            </button>
+          </div>
+        </header>
+
+        <section
+          aria-labelledby="cityName"
+          class="flex justify-between items-center px-4 py-8"
+        >
+          <div>
+            <h1 id="cityName" class="text-5xl font-bold mb-2">-------</h1>
+            <p class="text-gray-400">
+              Cloud cover: <span id="rainChance">--%</span>
+            </p>
+            <div class="text-7xl font-bold mt-10" id="currentTemp">--°</div>
+          </div>
+          <figure class="text-9xl text-yellow-400">
+            <i id="mainIcon" class="fa-solid fa-sun" aria-hidden="true"></i>
+          </figure>
+        </section>
+
+        <section class="bg-[#202b3b] rounded-3xl p-6">
+          <header class="flex justify-between items-center mb-6">
+            <h2
+              class="text-gray-400 uppercase text-xs font-bold tracking-widest"
+            >
+              Today's Forecast
+            </h2>
+          </header>
+
+          <div class="grid grid-cols-2 gap-8">
+            <article class="flex gap-3">
+              <i
+                class="fa-solid fa-temperature-three-quarters text-gray-500 mt-1"
+                aria-hidden="true"
+              ></i>
+              <div>
+                <p class="text-gray-400 text-sm">Real Feel</p>
+                <p id="realFeel" class="text-2xl font-bold">--°</p>
+              </div>
+            </article>
+            <article class="flex gap-3">
+              <i
+                class="fa-solid fa-wind text-gray-500 mt-1"
+                aria-hidden="true"
+              ></i>
+              <div>
+                <p class="text-gray-400 text-sm">Wind</p>
+                <p id="windSpeed" class="text-2xl font-bold">--- km/h</p>
+              </div>
+            </article>
+            <article class="flex gap-3">
+              <i
+                class="fa-solid fa-cloud text-gray-500 mt-1"
+                aria-hidden="true"
+              ></i>
+              <div>
+                <p class="text-gray-400 text-sm">Clouds</p>
+                <p id="rainProb" class="text-2xl font-bold">--%</p>
+              </div>
+            </article>
+            <article class="flex gap-3">
+              <i
+                class="fa-solid fa-sun text-gray-500 mt-1"
+                aria-hidden="true"
+              ></i>
+              <div>
+                <p class="text-gray-400 text-sm">Humidity</p>
+                <p id="uvIndex" class="text-2xl font-bold">--%</p>
+              </div>
+            </article>
+            <article class="flex gap-3">
+              <i
+                class="fa-solid fa-sun text-orange-400 mt-1"
+                aria-hidden="true"
+              ></i>
+              <div>
+                <p class="text-gray-400 text-sm">Sunrise</p>
+                <p id="sunriseTime" class="text-2xl font-bold">--:--</p>
+              </div>
+            </article>
+
+            <article class="flex gap-3">
+              <i
+                class="fa-solid fa-moon text-blue-300 mt-1"
+                aria-hidden="true"
+              ></i>
+              <div>
+                <p class="text-gray-400 text-sm">Sunset</p>
+                <p id="sunsetTime" class="text-2xl font-bold">--:--</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="bg-[#202b3b] rounded-3xl p-6 h-fit">
+          <h2
+            class="text-gray-400 uppercase text-xs font-bold mb-4 tracking-widest"
+          >
+            Your Ai Buddy Suggestion's
+          </h2>
+          <div id="hourlyGrid" class="space-y-6"></div>
+        </section>
+      </main>
+
+      <aside class="bg-[#202b3b] rounded-3xl p-6 h-fit">
+        <h2
+          class="text-gray-400 uppercase text-xs font-bold mb-6 tracking-widest"
+        >
+          7-Day Forecast
+        </h2>
+        <div id="forecastGrid" class="space-y-6"></div>
+      </aside>
+    </div>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
